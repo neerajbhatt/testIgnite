@@ -1,22 +1,8 @@
 package ignite.test.util;
 
-import java.io.ByteArrayInputStream;
-
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.nio.ByteBuffer;
-import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.function.Function;
-import java.util.zip.GZIPInputStream;
 
 import org.apache.ignite.Ignite;
 import org.apache.ignite.IgniteCache;
@@ -29,7 +15,7 @@ import org.apache.ignite.configuration.IgniteConfiguration;
 import org.apache.ignite.spi.discovery.tcp.TcpDiscoverySpi;
 import org.apache.ignite.spi.discovery.tcp.ipfinder.vm.TcpDiscoveryVmIpFinder;
 
-import ignite.test.core.*;
+import ignite.test.core.TestItem;
 public class PutItems {
 	public static void main(String[] args) throws IgniteException {
 		int maxItemCount = args.length == 1 ? Integer.valueOf(args[0]) : 10;
@@ -46,7 +32,7 @@ public class PutItems {
 
 		TcpDiscoveryVmIpFinder ipFinder = new TcpDiscoveryVmIpFinder();
 
-		ipFinder.setAddresses(Arrays.asList("172.29.65.249", "172.29.65.250", "172.29.65.251"));
+		ipFinder.setAddresses(Arrays.asList("a.b.c.1", "a.b.c.2", "a.b.c.3"));
 
 		discovery.setIpFinder(ipFinder);
 
